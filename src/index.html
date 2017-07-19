@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test jq</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background-color: #000;
+    }
+
+    .video-wrap {
+      width: 800px;
+      height: 640px;
+      margin: 50px auto;
+    }
+    .video-wrap .controller a {
+      display: inline-block;
+      /* width: 40px; */
+      line-height: 20px;
+      font-size: 14px;
+      padding:0 5px;
+      color: #333;
+      background: #999;
+      border:1px solid #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="video-wrap" id="videoBox">
+    <video width="320" height="240" controls id="video">
+      <source src="sample.mp4" type="video/mp4">
+    </video>
+    <div class="controller">
+      <a href="javascript:;" id="btnPP">play/pause</a>
+      <a href="javascript:;" id="btnForward">10s forward</a>
+      <a href="javascript:;" id="btnBackward">10s backward</a>
+      <a href="javascript:;" id="btnVolumeUp">Volume Up +1</a>
+      <a href="javascript:;" id="btnVolumeDown">Volume Down -1</a>
+    </div>
+  </div>
+  <script src="../dist/index.js"></script>
+</body>
+
+</html>
