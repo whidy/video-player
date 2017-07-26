@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>video player demo 2</title>
+  <link rel="stylesheet" type="text/css" href="./index.css" />
+</head>
+<body>
+  <div class="video-wrap" id="videoBox">
+    <video width="640" height="480" preload="auto" poster="https://github.com/whidy/video-player/blob/master/src/poster.png?raw=true" class="video" id="video">
+      <source src="http://ie.microsoft.com/testdrive/ieblog/2011/nov/pp4_blog_demo.mp4" type="video/mp4">
+    </video>
+    <div class="controller">
+      <a href="javascript:;" id="btnPP">Play / Pause</a>
+      <a href="javascript:;" id="btnForward">10s Forward</a>
+      <a href="javascript:;" id="btnBackward">10s Backward</a>
+      <a href="javascript:;" id="btnVolumeUp">Volume Up +10%</a>
+      <a href="javascript:;" id="btnVolumeDown">Volume Down -10%</a>
+      <a href="javascript:;" id="btnVolumeMute">Volume Mute</a>
+      <a href="javascript:;" id="btnFullScreen">FullScreen Mode</a>      
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
