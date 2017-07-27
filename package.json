@@ -1,0 +1,26 @@
+{
+  "name": "video-player",
+  "version": "1.0.0",
+  "description": "基于HTML5的video标签的简易播放器制作",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  },
+  "scripts": {
+    "start": "http-server -o --cors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whidy/video-player.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whidy/video-player/issues"
+  },
+  "homepage": "https://github.com/whidy/video-player#readme"
+}

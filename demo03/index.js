@@ -7,23 +7,11 @@ var btnPlayPause = document.getElementById('btnPP'),
   btnVolumeDown = document.getElementById('btnVolumeDown'),
   btnVolumeMute = document.getElementById('btnVolumeMute'),
   btnFullScreen = document.getElementById('btnFullScreen');
+  btnCapSwitcher = document.getElementById('btnCapSwitcher');
 
+  
 //播放前的准备工作
 
-
-
-
-
-var playingStatus = false;
-
-video.addEventListener('click', function () {
-  this.play();
-}, 'false');
-
-setInterval(function() {
-  // console.log(video.readyState) //0 1 4
-  console.log(video.readyState) //0 1 4
-}, 10);
 
 //播放暂停功能
 btnPlayPause.addEventListener('click', function () {
@@ -60,6 +48,15 @@ btnVolumeMute.addEventListener('click', function () {
     video.muted = false;
   } else {
     video.muted = true;
+  }
+}, 'false');
+
+// 字幕开关(注意在本次demo测试中只有一个字幕因此可以这样处理,如果存在多个字幕需可能需要修改)
+btnCapSwitcher.addEventListener('click', function () {
+  if (video.textTracks[0].mode == 'hidden') {
+    video.textTracks[0].mode = 'showing';
+  } else {
+    video.textTracks[0].mode = 'hidden';
   }
 }, 'false');
 
