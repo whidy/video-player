@@ -171,11 +171,24 @@ btnFullScreen.addEventListener('click', function () {
 
 #### 完善这个播放器的功能
 
-这次我将HTML代码内的视频SRC改成外链，进行相关测试
+这次我将HTML代码内的视频SRC改成外链，进行相关测试，这样我们就需要考虑这些问题了
 
-1. 待修改
-2. ​
-3. ​
+1. 视频地址错误或者视频格式错误造成的无法播放
+2. 网络错误造成无法播放
+
+为什么要考虑这些问题，原因很简单，不应该让用户死等或者反复刷新，避免用户困惑。
+
+我在github上创建了一个加强版的[DEMO](https://github.com/whidy/video-player/tree/master/demo03)，就不再重复帖代码占位置了：）
+
+总结及参考文献：
+
+MSDN对于[canPlayType](https://msdn.microsoft.com/zh-cn/library/hh924823(v=vs.85).aspx)写了很多，我以为可以自动检测当前文件是否是可支持的格式，实际并不是，总而言之我认为它对开发播放器目前没有什么帮助。
+
+[loadedmetadata](https://developer.mozilla.org/en-US/docs/Web/Events/loadedmetadata)是先于[loadeddata](https://developer.mozilla.org/en-US/docs/Web/Events/loadeddata)，前者获取到媒体文件的meta元数据，后者或许是加载到了视频的数据流，那么这里需要注意，readyState要写在后者才能触发播放，仅仅加载媒体文件元数据的情况下是无法播放的。迷迷糊糊的你赶紧去GOOGLE研究下吧，其实我也说不清楚哇哈哈。我DEMO中两种loaded都有写，可以自己改写试试。
+
+关于媒体播放的两个重要的状态[networkState](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/networkState)和[readyState](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLMediaElement/readyState)是有必要了解下，我DEMO中做了个定时器检测。大部分资料来源[HTMLMediaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement)
+
+### 总结
 
 其实，上面说的这些并只是视频播放器自带功能的一部分。还有很多个较为常见的功能未提及，希望大家自己如果有兴趣的话自己学习研究下，我简单总结下这些或许实用的功能：
 
@@ -187,12 +200,30 @@ btnFullScreen.addEventListener('click', function () {
 
 2. 通过修改video的src来实现播放完后连续播放其他视频的功能。
 
-3. 通过监听window的blur和focus事件，当离开视频播放页时，暂停播放或者静音等其他播放器事件。适用场景比如你正在边打游戏边看视频，你的游戏开始需要加载5分钟，或者英雄死了，复活要1分钟，你决定切回网页看视频，看到一半游戏窗口主动被激活到当前窗口，视频依旧播放，那你还需要再切回浏览器进行暂停操作，这个的确很繁琐。（当然大部分游戏不会主动激活到当前窗口，不过有的还是会的。）
+3. 为视频增加字幕功能，在上面的DEMO我简单的做了尝试，有兴趣可以看看[Adding captions and subtitles to HTML5 video](https://developer.mozilla.org/en-US/Apps/Fundamentals/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video)
+
+4. 通过监听window的blur和focus事件，当离开视频播放页时，暂停播放或者静音等其他播放器事件。适用场景比如你正在边打游戏边看视频，你的游戏开始需要加载5分钟，或者英雄死了，复活要1分钟，你决定切回网页看视频，看到一半游戏窗口主动被激活到当前窗口，视频依旧播放，那你还需要再切回浏览器进行暂停操作，这个的确很繁琐。（当然大部分游戏不会主动激活到当前窗口，不过有的还是会的。）
 
    具体操作可参考：[TURN THAT DOWN! Pausing or changing the volume of media when you leave the page](https://blogs.msdn.microsoft.com/mediastuff/2014/03/28/turn-that-down-pausing-or-changing-the-volume-of-media-when-you-leave-the-page/)
 
 应该还有些比较实用的内容，我想到后再更新吧···
 
-完成各项功能后,开始考虑移动端的问题.在移动端屏幕较小的情况下,我们或许难以留出很多歌按钮负责不同功能.很多视频播放软件都有左右"滑动视频"来控制进度,上下滑动控制音量甚至是显示亮度,我们可以考虑尝试实现.
+（PS：对于UI界面的优化后期可能会不定期更新哦~）
 
-blablabla...
+
+
+##### 额外阅读：
+
+功能强大的[HTML5 Video Player](http://videojs.com/)里面有很多自定义功能，其实学习他的代码就够了
+
+B站采用的[DPlayer](https://github.com/MoePlayer/DPlayer)
+
+通过配置player参数来创建video的灵活性，扩展性强的网页版多媒体播放器[http://clappr.io](http://clappr.io/)
+
+基于JQuery的HTML5 Audio & Video播放器[jPlayer](http://jplayer.org/)（兼容平台很强）
+
+
+
+完成PC端基本功能后，我发现其实我对这个任务是跑题了，但是我觉得无论PC还是WAP，video还是需要尽可能的了解，废话少说，现在开始考虑移动端吧。
+
+在移动端屏幕较小的情况下，我们或许难以留出很多按钮负责不同功能。那么这里就需要一些思考和技巧了。请看下期《基于HTML5的video标签的简易播放器制作（二）》（制作中···）
