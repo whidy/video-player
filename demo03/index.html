@@ -14,7 +14,10 @@
       <p>Your browser doesn't support HTML5 video. YOU ARE BAD!</p>
       <track kind="subtitles" src="./subtitles.vtt" srclang="en" default>
     </video>
-    <div class="controller">
+    <div class="custom-controller" id="customController">
+      <div class="video-seekbar-wrap"><input id="videoSeekbar" type="range" name="" min="0" value="0" step="1"></div>        
+    </div>
+    <div class="controller" id="controllers">
       <a href="javascript:;" id="btnPP">Play / Pause</a>
       <a href="javascript:;" id="btnForward">10s Forward</a>
       <a href="javascript:;" id="btnBackward">10s Backward</a>
@@ -24,6 +27,7 @@
       <a href="javascript:;" id="btnFullScreen">FullScreen Mode</a>
       <a href="javascript:;" id="btnCapSwitcher">Subtitle On/Off</a>
     </div>
+    <div class="msg" id="msg"></div>
   </div>
   <script src="./index.js"></script>
 </body>

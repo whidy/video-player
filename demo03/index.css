@@ -15,8 +15,12 @@ html, body {
 
 .video-wrap {
   width: 640px;
-  height: 640px;
+  height: 480px;
   margin: 50px auto;
+  position: relative;
+}
+.video-wrap .controller {
+  display: none;
 }
 .video-wrap .controller a {
   display: inline-block;
@@ -27,4 +31,23 @@ html, body {
   color: #333;
   background: #eee;
   border:1px solid #fff;
+}
+.custom-controller {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 640px;
+  height: 480px;
+}
+.video-seekbar-wrap {
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.video-seekbar-wrap input[type="range"] {
+  width: 640px;
+  display: none;
+}
+.msg {
+  color: red;
 }
